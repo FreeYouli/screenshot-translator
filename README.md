@@ -1,15 +1,17 @@
 # 截图翻译工具
 
-截图 → OCR → 翻译 → 显示结果，全流程一键完成。
+**玩外服游戏遇到外国人？截屏即译，无需切出游戏。**
 
-支持截图翻译和输入翻译两种模式，离线翻译引擎，自动缓存结果。
+截图 → OCR → 翻译 → 复制到剪贴板，一键完成。支持截图翻译和输入翻译两种模式，离线翻译引擎，自动缓存结果。
+
+> 适用场景：外服游戏实时交流、外文软件界面阅读、生肉漫画/文档快速理解——任何不方便复制粘贴到网页翻译的地方。
 
 ## 功能
 
 | 快捷键 | 功能 |
 |--------|------|
-| Ctrl+Shift+Z | 截图翻译：拖拽框选屏幕区域 → OCR 识别 → 翻译 → 弹窗 + 自动复制到剪贴板 |
-| Ctrl+Shift+X | 输入翻译：弹出输入框 → 输入中文 → 翻译为英文 → 弹窗 + 自动复制到剪贴板 |
+| Ctrl+Shift+Z | **截图翻译**：拖拽框选屏幕区域 → OCR 识别 → 翻译 → 弹窗 + 自动复制 |
+| Ctrl+Shift+X | **输入翻译**：弹出输入框 → 输入中文 → 翻译为英文 → 弹窗 + 自动复制 |
 | — | 系统托盘图标：右键菜单可访问截图翻译、输入翻译、设置、退出 |
 | — | 设置窗口：修改快捷键、Tesseract 路径、OCR 语言、重试次数，自动保存到 config.json |
 
@@ -17,25 +19,23 @@
 
 ```bash
 # 克隆仓库
-git clone https://github.com/游離/截图翻译工具.git
-cd 截图翻译工具
+git clone https://github.com/FreeYouli/screenshot-translator.git
+cd screenshot-translator
 
 # 安装依赖
 pip install -r requirements.txt
 ```
 
-### 额外依赖
+### 可选依赖
 
-- **系统托盘支持**（可选）：`pip install pystray`，未安装时自动降级为命令行模式
-- **剪贴板加速**（可选）：`pip install pyperclip`，未安装时自动使用 Windows `clip` 命令降级
+- **系统托盘**：`pip install pystray`，未安装时自动降级为命令行模式
+- **剪贴板加速**：`pip install pyperclip`，未安装时自动使用 Windows `clip` 命令
 
 ### Tesseract-OCR 引擎
 
-OCR 功能依赖 Tesseract-OCR 引擎：
-
 1. 从 [UB-Mannheim/tesseract](https://github.com/UB-Mannheim/tesseract/wiki) 下载安装包
-2. 安装时勾选中文简体语言包（chi_sim）
-3. 默认安装路径为 `D:\Tesseract-OCR\tesseract.exe`，可在设置中修改
+2. 安装时勾选**中文简体语言包（chi_sim）**
+3. 默认路径 `D:\Tesseract-OCR\tesseract.exe`，可在设置中修改
 
 ## 系统要求
 
@@ -54,7 +54,7 @@ python main.py
 
 ### 系统托盘
 
-如果安装了 `pystray`，启动后会在系统托盘显示图标，右键菜单包含：
+安装 `pystray` 后启动会在系统托盘显示图标，右键菜单包含：
 
 - **截图翻译 (Ctrl+Shift+Z)** — 触发截图翻译流程
 - **输入翻译 (Ctrl+Shift+X)** — 弹出输入翻译窗口
@@ -65,7 +65,7 @@ python main.py
 
 ### 设置 GUI
 
-在设置窗口中可以修改：
+在设置窗口中可修改：
 
 - 截图翻译快捷键（默认 Ctrl+Shift+Z）
 - 输入翻译快捷键（默认 Ctrl+Shift+X）
@@ -78,7 +78,7 @@ python main.py
 ## 项目结构
 
 ```
-截图翻译工具/
+screenshot-translator/
 ├── main.py          入口，热键监听，系统托盘
 ├── config.py        配置管理（config.json 读写）
 ├── screenshot.py    区域截图（mss）
@@ -106,7 +106,7 @@ python main.py
 }
 ```
 
-缺失的配置项会自动使用默认值，无需手动创建文件。
+缺失的配置项自动使用默认值，无需手动创建文件。
 
 ## 许可协议
 
