@@ -1,0 +1,27 @@
+# 核心依赖
+# 全局快捷键监听
+keyboard>=0.13.5
+
+# 高性能截图
+mss>=9.0.0
+
+# OCR 文字识别（需要安装 Tesseract-OCR 引擎）
+pytesseract>=0.3.10
+
+# 图片处理
+Pillow>=10.0.0
+
+# 离线翻译
+translate>=3.8.0
+
+# 可选依赖
+# 系统托盘支持，未安装时自动降级为命令行模式
+# pystray>=0.19.0
+
+# 剪贴板加速，未安装时自动使用 clip 命令降级
+# pyperclip>=1.8.0
+
+# 依赖安装：
+#   pip install -r requirements.txt
+# 可选依赖按需安装：
+#   pip install pystray pyperclip
